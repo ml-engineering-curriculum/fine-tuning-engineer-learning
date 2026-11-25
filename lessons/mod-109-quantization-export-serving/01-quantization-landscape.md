@@ -80,7 +80,7 @@ Quality (relative to BF16, higher = better)
 
 The knee is at 4 bits. Above the knee, well-executed quantization costs almost nothing; below it, quality falls off sharply. This is why every "production" quantization method in this module lives between 4 and 8 bits and why aggressive 2–3 bit schemes are still research-grade.
 
-<!-- needs-research: the exact position of the knee shifts with model size (bigger models are more robust to low-bit quantization) and family. Treat the sketch as directional, not calibrated. See Dettmers & Zettlemoyer 2023 for the empirical curves per model family. -->
+The exact position of the knee shifts with model size and family — larger models are generally more robust to low-bit quantization. Treat the sketch as directional, not calibrated; see Dettmers & Zettlemoyer (2023) in `resources.md` for the empirical scaling curves.
 
 ## What "quality delta from quantization" actually means
 
@@ -108,7 +108,7 @@ The tolerance number is a decision, not a physical constant. A reasonable starti
 | GGUF Q3_K_M | 2–5 pp | 3–8 pp | edge only; test carefully |
 | GGUF Q2_K | 5–15 pp | 5–20 pp | last resort, expect degradation |
 
-<!-- needs-research: these ranges are drawn from the primary papers and llama.cpp / vLLM published benchmarks; they are order-of-magnitude anchors, not commitments. Verify against your own release-gate numbers on your specific model — the deltas depend heavily on base model, fine-tune style, and evaluation task. -->
+These ranges are order-of-magnitude anchors drawn from the primary papers and published llama.cpp / vLLM benchmarks, not commitments. Verify against your own release-gate numbers on your specific model — deltas depend heavily on base model, fine-tune style, and evaluation task.
 
 The rule of thumb: **if the quantized number is inside your gate's per-task tolerance, ship it; if it is not, either re-quantize with better settings or accept a wider (bigger) format.** Chapter 2 covers the "better settings" knobs.
 

@@ -157,7 +157,7 @@ Curated primary references. Prefer these — the paper of record, the official d
 - Anthropic pricing — https://www.anthropic.com/pricing
 - Google Vertex AI generative-model pricing — https://cloud.google.com/vertex-ai/generative-ai/pricing
 
-<!-- needs-research: verify current per-GPU-hour and per-million-token pricing before quoting any specific figure in a runbook — cloud and API prices move quarterly. -->
+Verify current per-GPU-hour and per-million-token pricing on the pages above before quoting any specific figure in a runbook — cloud and managed-API prices move quarterly.
 
 ### SRE / runbook practice
 
@@ -194,4 +194,4 @@ Curated primary references. Prefer these — the paper of record, the official d
 5. Read chapter 6 alongside the `llama.cpp` README (particularly the quantization ladder table) and the GGUF spec. Exercise 04 exports and equivalence-checks against the source.
 6. Read chapter 7 last of the core chapters and pair it with the Sarathi-Serve paper and the SRE workbook's SLO chapter. Exercise 03 (TGI + vLLM head-to-head load test) exercises the load-test pattern this chapter formalizes.
 
-<!-- needs-research: on the next authoring cycle, add version pins for the `vllm`, `text-generation-inference`, `llama.cpp`, `AutoGPTQ` / `gptqmodel`, `AutoAWQ`, `bitsandbytes`, `optimum`, and `transformers` links so future readers land on the version this module was authored against. Managed-API pricing pages (OpenAI, Anthropic, Vertex) drift and should be re-verified before being cited in any runbook cost table. -->
+Reader note: tooling links above (`vllm`, `text-generation-inference`, `llama.cpp`, `AutoGPTQ` / `gptqmodel`, `AutoAWQ`, `bitsandbytes`, `optimum`, `transformers`) point to the main branch / latest docs; pin to the version you have installed before designing around any specific flag. Managed-API pricing pages (OpenAI, Anthropic, Vertex) drift and should be re-verified before being cited in any runbook cost table.

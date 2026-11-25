@@ -83,7 +83,7 @@ Tells TGI to load a quantized checkpoint or to quantize at load time:
 
 The pattern: if the checkpoint is *already* quantized (GPTQ / AWQ / FP8 files on disk), pass the matching `--quantize` value so TGI uses the right loader. If the checkpoint is BF16 and you want on-the-fly quantization, `--quantize bitsandbytes` / `bitsandbytes-nf4` does it at load. Note the on-the-fly path is convenient for dev but slower to load and less flexible than pre-quantizing with GPTQ / AWQ.
 
-<!-- needs-research: TGI's `--quantize` value set and per-value support (which model families work with which flag) drift version to version. Verify against the version-pinned TGI launcher docs for your install. -->
+TGI's `--quantize` value set and per-value support (which model families work with which flag) drift version to version; verify against the version-pinned TGI launcher docs for your install.
 
 ### `--max-input-length`
 
@@ -231,7 +231,7 @@ curl http://localhost:8080/v1/chat/completions \
 
 Same routing patterns from chapter 3 apply — header-based, classifier-based, canary, fallback.
 
-<!-- needs-research: TGI's LoRA-adapter flags and endpoints have changed across versions and are not always feature-identical with vLLM's multi-LoRA. Verify LoRA-over-quantized-base support against the version-pinned docs before designing around it. -->
+TGI's LoRA-adapter flags and endpoints have changed across versions and are not always feature-identical with vLLM's multi-LoRA; verify LoRA-over-quantized-base support against the version-pinned docs before designing around it.
 
 ## The five smoke tests you run on every deploy
 

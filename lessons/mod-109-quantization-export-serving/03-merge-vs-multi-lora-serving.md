@@ -67,7 +67,7 @@ Rough numbers (illustrative — actual depends on model, hardware, and batch siz
 | Adapter evicted then loaded from disk | +1–5 s *first request* | Rare in a well-sized `--max-cpu-loras`. |
 | Naive `set_adapter` + generate loop (no batching) | +30–50% | Hand-rolled loops without fused kernels. Avoid. |
 
-<!-- needs-research: exact numbers depend heavily on model size, adapter rank, batch size, and vLLM version. Treat the ~5–15% band as the operating point on modern vLLM; measure your workload. -->
+The ~5–15% band is a typical operating point on modern vLLM, but exact numbers depend on model size, adapter rank, batch size, and runtime version — measure your workload.
 
 The rule: **on a LoRA-aware runtime (vLLM / TGI / LoRAX), the per-request LoRA overhead is small enough that most workloads should not merge for latency reasons alone.** Reasons to still merge are simplicity, multi-adapter routing not being needed, or a runtime that does not support LoRA at all.
 
@@ -105,7 +105,7 @@ The specific combination "INT4 base + BF16 LoRA at inference time" is the most-a
 - TGI has its own LoRA-adapter path; the LoRA-over-quantized story is similarly evolving. Verify against the current docs before designing around it.
 - LoRAX (Predibase) is explicitly designed around this combination and is often the fastest path if "multi-LoRA over a quantized base" is the product.
 
-<!-- needs-research: LoRA-over-quantized-base support in vLLM and TGI changes rapidly. The exercise for this module includes a smoke-test step that verifies the current-version behavior for the reader's chosen (base, quantization, adapter) tuple before designing around it. Do not commit to a serving architecture on the strength of a blog post; run the smoke test. -->
+LoRA-over-quantized-base support in vLLM and TGI changes rapidly. The exercise for this module includes a smoke-test step that verifies current-version behavior for the reader's chosen (base, quantization, adapter) tuple before designing around it. Do not commit to a serving architecture on the strength of a blog post; run the smoke test.
 
 ## Routing patterns at serve time
 

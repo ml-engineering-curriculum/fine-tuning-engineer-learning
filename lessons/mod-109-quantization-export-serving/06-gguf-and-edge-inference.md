@@ -50,7 +50,7 @@ The "M" and "S" suffixes on K-quants indicate mixed-precision layouts: some laye
 
 The empirical shape: **on a 7B model, Q4_K_M is the "one number to pick if you don't know."** It runs on modest CPUs at a few tokens/sec, on M-series Macs at 20–40 tokens/sec, on a laptop dGPU at 30–60 tokens/sec, and quality-degrades from BF16 by roughly what a well-tuned GPTQ / AWQ would (typically 1–3 pp on academic evals, more on math and code).
 
-<!-- needs-research: exact quality deltas per k-quant depend on model and workload; the llama.cpp README and community perplexity tables are the primary references. Do not assume the numbers here beyond order-of-magnitude — measure on your own eval. -->
+Exact quality deltas per k-quant depend on model and workload; the llama.cpp README and community perplexity tables are the primary references. Do not assume the numbers above beyond order-of-magnitude — measure on your own eval.
 
 ## Conversion from a Hugging Face checkpoint
 

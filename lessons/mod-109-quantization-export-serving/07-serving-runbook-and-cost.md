@@ -103,7 +103,7 @@ Other costs that the runbook should quantify:
 - **Data egress** if the serving pod pulls model weights across a region boundary.
 - **On-call time.** Not a dollar line item, but a real budget. Every operational quirk in the deploy is a fraction of an engineer's week; the runbook is how you reduce that.
 
-<!-- needs-research: cloud GPU pricing changes constantly and varies enormously by provider, commitment, and market conditions. The numbers here are directional; the runbook should cite the current per-provider quote and the date of the quote. -->
+Cloud GPU pricing changes constantly and varies enormously by provider, commitment, and market conditions. The numbers here are directional; the runbook should cite the current per-provider quote and the date of the quote.
 
 ## Latency vs. throughput vs. cost — the trade-off
 

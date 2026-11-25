@@ -177,7 +177,7 @@ The single most impactful decision. Three reasonable defaults:
 
 The rule: **calibrate on data that looks like what the model will see in production.** A fine-tuned code model calibrated on C4 will quantize worse than one calibrated on code prompts. A chat model calibrated on completions-only text (no chat template) will subtly degrade the model's instruction-following. Chapter 1's task-selective regression pattern is almost always a calibration-data mismatch.
 
-<!-- needs-research: sample-size ablations vary across papers and models; the 128–1024 range is what the GPTQ paper and current tooling defaults span. If you have the budget, a small ablation (128 vs. 512 vs. 1024) on your task-specific held-out set is the honest way to pick. -->
+On sample size: the GPTQ paper (Frantar et al., 2022) uses 128 samples of 2048 tokens by default, and current tooling defaults span roughly 128–1024. Sample-size ablations vary across papers and models; if you have the budget, a small ablation (128 vs. 512 vs. 1024) on your task-specific held-out set is the honest way to pick.
 
 ## AWQ: the Lin et al. 2023 method
 

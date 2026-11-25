@@ -185,7 +185,7 @@ vllm serve /models/support-v3-fp8 \
   --max-model-len 8192
 ```
 
-<!-- needs-research: quantization flag names and the exact set of supported `--quantization` values evolve between vLLM versions. Verify against the version-pinned vLLM docs listed in `resources.md` for your install. -->
+Quantization flag names and the exact set of supported `--quantization` values evolve between vLLM versions; verify against the version-pinned vLLM docs listed in `resources.md` for your install.
 
 ## Multi-LoRA with vLLM
 
